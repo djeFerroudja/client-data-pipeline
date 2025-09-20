@@ -1,0 +1,6 @@
+
+1. Lire les 2 fichiers CSV en pièce jointe
+2. Garder que les clients qui ont plus de 18 ans
+3. Faire une jointure entre les 2 sources de données sur la colonne zipcode
+4. Calculer pour chaque ligne le département (attention la avec la Corse qui est 2A ou 2B)  --> OK
+5. Écrire un fichier au format parquet

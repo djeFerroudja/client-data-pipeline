@@ -1,0 +1,25 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environments
+env/
+venv/
+.venv*
+
+# VSCode settings
+.vscode/
+
+# PyCharm settings
+.idea/
+# Logs
+*.log
+
+# Coverage files
+.coverage
+htmlcov
+
+# Output tests
+
+tests/resources/output

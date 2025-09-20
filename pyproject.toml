@@ -1,0 +1,9 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "country_age_analyses"
+version = "0.1.0"
+description = "Customer age analysis package"
+requires-python = ">=3.10"
