@@ -1,9 +1,21 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "country_age_analyses"
 version = "0.1.0"
-description = "Customer age analysis package"
-requires-python = ">=3.10"
+description = "Country age analysis package"
+requires-python = ">=3.8"
+
+dependencies = [
+    "polars",
+    "pandas",
+    "pyspark",
+    "pyarrow"
+]
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.setuptools.packages.find]
+where = ["src"]

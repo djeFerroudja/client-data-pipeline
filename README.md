@@ -1,59 +1,65 @@
 
-A data processing pipeline for analyzing client data by age and location, with support for both CSV and Parquet output formats and comprehensive testing.
+# 📊 Client Data Analysis by Zip Code
+
+![Project Banner](img.png)
+
 ## 🚀 Overview
 
-This project processes client data to analyze demographics by age and location. It takes client information and city/zip code data as input, filters clients based on age criteria, enriches the data with department information, and outputs the results in both CSV and Parquet formats.
+This project enables the analysis of client data based on age and location. It processes client information, associates it with geographical zip code data, and generates detailed analyses by department. The project supports multiple data processing backends including **pandas**, **polars**, and **PySpark** for optimal performance at any scale.
+
 ## ✨ Features
-![img.png](img.png)
+
+- **Multi-Engine Support**:
+  - Seamless integration with **pandas**, **polars**, and **PySpark**
+  - Automatic type inference and conversion between frameworks
+
 - **Data Processing**:
-  - Filter clients by age threshold
-  - Merge client data with city/zip code information
-  - Add department information based on zip codes
-  - Handle missing or invalid data gracefully
+  - Filter clients based on age criteria
+  - Enrich data with geographical information
+  - Aggregate data by department
+  - Robust handling of missing or invalid data
+  - Type-safe operations with Python type hints
 
 - **Input/Output**:
   - Load data from CSV files
-  - Export results to both CSV and Parquet formats
-  - Automatic directory creation for output files
+  - Export results in various formats
+  - Automatic output directory creation
   - Configurable file paths and output formats
 
-- **Testing & Quality**:
+- **Quality & Testing**:
   - Comprehensive unit tests with pytest
-  - Type hints for better code quality
-  - GitHub Actions CI/CD pipeline
-  - Code coverage reporting
+  - Static typing for better code quality
+  - Continuous Integration with GitHub Actions
+  - Code coverage reports
 
-## ️ Project Structure
+## 📁 Project Structure
 
 ```
 .
 ├── .github/
 │   └── workflows/
-│       └── build.yml          # GitHub Actions CI/CD configuration
-├── resources/
-│   ├── city_zipcode.csv       # City and zip code reference data
-│   └── clients_bdd.csv        # Client database
+│       └── build.yml          # GitHub Actions CI/CD Configuration
 ├── src/
 │   └── country_age_analyses/
-│       ├── scripts/
-│       │   ├── data_processing.py  # Core data transformation logic
-│       │   ├── io_utils.py         # File I/O operations
-│       │   ├── pipeline.py         # Main processing pipeline
-│       │   └── utils.py            # Utility functions
-│       └── __init__.py
-├── tests/
+│       ├── resources/         # Reference data
+│       ├── scripts/           # Processing scripts
+│       │   └── data_processing.py
+│       ├── utils/             # Utilities
+│       │   ├── custom_logger.py
+│       │   └── __init__.py
+│       ├── __init__.py
+│       └── main.py            # Main entry point
+├── tests/                     # Automated tests
 │   ├── resources/
-│   │   └── input/             # Test input data
-│   ├── test_data_processing.py # Tests for data processing
-│   ├── test_export_data.py     # Tests for export functionality
-│   └── test_run_pipeline.py    # Integration tests
+│   ├── test_data_processing.py
+│   └── test_export_data.py
 ├── .gitignore
-├── pyproject.toml             # Project configuration and dependencies
-├── README.md                  # This file
-└── requirements.txt           # Project dependencies
+├── pyproject.toml            # Project configuration
+├── README.md                 # This file
+└── requirements.txt          # Dependencies
 ```
 
-## 🚀 Getting Started
+## 🚀 Installation
 
 ### Prerequisites
 
@@ -61,7 +67,7 @@ This project processes client data to analyze demographics by age and location. 
 - pip (Python package manager)
 - Git
 
-### Installation
+### Setup
 
 1. Clone the repository:
    ```bash
@@ -75,15 +81,34 @@ This project processes client data to analyze demographics by age and location. 
    .\.venv\Scripts\activate
    ```
 
-
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+   
+3. Install package:
+   ```bash
+   pip install -e .
+   
+   ```
 ## 🏃‍♂️ Usage
 
-### Running the Pipeline
+### Running the Main Program
 
-To process the client data:
+To start data analysis:
 ```bash
-python -m country_age_analyses.scripts.pipeline
+python -m country_age_analyses.main
 ```
+```-m country_age_analyses.main``` tells Python to execute the main module.
+
+```--engine``` selects the data processing engine (polars or pandas)
+
+#### Example
+Default (uses pandas)
+```-m country_age_analyses.main```
+
+Explicitly using polars
+```country_age_analyses --engine=polars```
 
 ### Running Tests
 
@@ -92,39 +117,33 @@ Run all tests:
 pytest
 ```
 
-Run tests with coverage report:
+Generate coverage report:
 ```bash
 pytest --cov=src
 ```
 
 ### Development
 
-Before committing code, run the following to ensure code quality:
+Before submitting code, run these commands to ensure quality:
 
 ```bash
-# Run linter
+# Code style checking
 pylint src tests
 
-# Run formatter
+# Code formatting
 black src tests
 
-# Run type checking
+# Type checking
 mypy src
 ```
 
 ## 🔧 Configuration
 
-The main configuration can be found in the pipeline script. You can modify:
+Main parameters can be modified in `main.py`:
 - Input file paths
 - Output directories
 - Age threshold for filtering
-- Output formats (CSV/Parquet)
-## 🧪 Testing
-
-Run the test suite:
-```bash
-python -m pytest tests/
-```
+- Output formats
 
 ## 🤝 Contributing
 
@@ -134,8 +153,6 @@ python -m pytest tests/
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-
-
 ## 📧 Contact
 
-[Ferroudja DJELLALI] - [ferroudja.djellali@gmail.com]" > README.md
+Ferroudja DJELLALI - [ferroudja.djellali@gmail.com]
